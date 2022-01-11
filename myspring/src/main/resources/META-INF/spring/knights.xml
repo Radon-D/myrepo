@@ -8,15 +8,15 @@
     http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="knight" class="sia.knights.BraveKnight">
+    <bean id="knight" class="example.diandaop.sia.knights.BraveKnight">
         <constructor-arg ref="quest" />
     </bean>
 
-    <bean id="quest" class="sia.knights.SlayDragonQuest">
+    <bean id="quest" class="example.diandaop.sia.knights.SlayDragonQuest">
         <constructor-arg value="#{T(System).out}" />
     </bean>
 
-    <bean id="minstrel" class="sia.knights.Minstrel">
+    <bean id="minstrel" class="example.diandaop.sia.knights.Minstrel">
         <constructor-arg value="#{T(System).out}" />
     </bean>
     

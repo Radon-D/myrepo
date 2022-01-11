@@ -1,4 +1,4 @@
-package sia.knights;
+package example.diandaop.sia.knights;
 
 import org.junit.Test;
 import org.mockito.Mockito;

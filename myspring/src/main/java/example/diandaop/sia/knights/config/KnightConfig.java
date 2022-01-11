@@ -1,12 +1,12 @@
-package sia.knights.config;
+package example.diandaop.sia.knights.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import sia.knights.BraveKnight;
-import sia.knights.Knight;
-import sia.knights.Minstrel;
-import sia.knights.Quest;
-import sia.knights.SlayDragonQuest;
+import example.diandaop.sia.knights.BraveKnight;
+import example.diandaop.sia.knights.Knight;
+import example.diandaop.sia.knights.Minstrel;
+import example.diandaop.sia.knights.Quest;
+import example.diandaop.sia.knights.SlayDragonQuest;
 
 @Configuration
 public class KnightConfig {

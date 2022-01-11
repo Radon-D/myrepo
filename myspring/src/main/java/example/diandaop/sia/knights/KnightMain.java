@@ -1,8 +1,8 @@
-package sia.knights;
+package example.diandaop.sia.knights;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import sia.knights.config.KnightConfig;
+import example.diandaop.sia.knights.config.KnightConfig;
 
 public class KnightMain {
 

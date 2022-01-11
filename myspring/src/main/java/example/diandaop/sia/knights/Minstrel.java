@@ -1,4 +1,4 @@
-package sia.knights;
+package example.diandaop.sia.knights;
 
 import java.io.PrintStream;
 
