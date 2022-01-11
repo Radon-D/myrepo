@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import sia.knights.BraveKnight;
 import sia.knights.Knight;
+import sia.knights.Minstrel;
 import sia.knights.Quest;
 import sia.knights.SlayDragonQuest;
 
@@ -18,6 +19,11 @@ public class KnightConfig {
     @Bean
     public Quest quest() {
         return new SlayDragonQuest(System.out);
+    }
+
+    @Bean
+    public Minstrel minstrel() {
+        return new Minstrel(System.out);
     }
 
 }
