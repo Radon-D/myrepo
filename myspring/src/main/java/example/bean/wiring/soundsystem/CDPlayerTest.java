@@ -12,7 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * ContextConfiguration注解会通知需要加载的配置
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)
+//@ContextConfiguration(classes = CDPlayerConfig.class)
+@ContextConfiguration("classpath:/cdplayerconfig.xml")
 public class CDPlayerTest {
 
     @Autowired

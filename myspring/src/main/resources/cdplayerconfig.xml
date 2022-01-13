@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="compactDisc" class="example.bean.wiring.soundsystem.SgtPeppers"/>-->
+
+<!--    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer">-->
+<!--        <constructor-arg ref="compactDisc"/>-->
+<!--    </bean>-->
+
+    <!-- c-命名空间 -->
+    <!-- 使用构造器参数变量名 -->
+<!--    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer" c:cd-ref="compactDisc"/>-->
+    <!-- 使用构造器参数索引 -->
+<!--    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer" c:_0-ref="compactDisc"/>-->
+    <!-- 只有一个参数省略索引 -->
+<!--    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer" c:_-ref="compactDisc"/>-->
+
+
+
+
+    <bean id="compactDisc" class="example.bean.wiring.soundsystem.BlankDisc"
+          c:_0="Sgt. Pepper's Lonely Hearts Club Band"
+          c:_1="The Beatles">
+        <constructor-arg>
+            <list>
+                <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+                <value>With a Little Help from My Friends</value>
+                <value>Lucy in the Sky with Diamonds</value>
+                <value>Getting Better</value>
+                <value>Fixing a Hole</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer" c:cd-ref="compactDisc"/>
+
+
+
+
+
+
+</beans>
