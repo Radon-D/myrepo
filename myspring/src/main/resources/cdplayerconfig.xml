@@ -2,7 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:c="http://www.springframework.org/schema/c"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
 
 <!--    <bean id="compactDisc" class="example.bean.wiring.soundsystem.SgtPeppers"/>-->
 
@@ -21,25 +26,66 @@
 
 
 
-    <bean id="compactDisc" class="example.bean.wiring.soundsystem.BlankDisc"
-          c:_0="Sgt. Pepper's Lonely Hearts Club Band"
-          c:_1="The Beatles">
-        <constructor-arg>
-            <list>
-                <value>Sgt. Pepper's Lonely Hearts Club Band</value>
-                <value>With a Little Help from My Friends</value>
-                <value>Lucy in the Sky with Diamonds</value>
-                <value>Getting Better</value>
-                <value>Fixing a Hole</value>
-            </list>
-        </constructor-arg>
-    </bean>
+<!--    <bean id="compactDisc" class="example.bean.wiring.soundsystem.BlankDisc"-->
+<!--          c:_0="Sgt. Pepper's Lonely Hearts Club Band"-->
+<!--          c:_1="The Beatles">-->
+<!--        <constructor-arg>-->
+<!--            <list>-->
+<!--                <value>Sgt. Pepper's Lonely Hearts Club Band</value>-->
+<!--                <value>With a Little Help from My Friends</value>-->
+<!--                <value>Lucy in the Sky with Diamonds</value>-->
+<!--                <value>Getting Better</value>-->
+<!--                <value>Fixing a Hole</value>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
 
-    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer" c:cd-ref="compactDisc"/>
-
-
+<!--    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer" c:cd-ref="compactDisc"/>-->
 
 
 
+
+<!--    <bean id="compactDisc" class="example.bean.wiring.soundsystem.SgtPeppers"/>-->
+
+<!--    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer">-->
+<!--        <property name="compactDisc" ref="compactDisc"/>-->
+<!--    </bean>-->
+
+
+
+
+<!--        <bean id="compactDisc" class="example.bean.wiring.soundsystem.SgtPeppers"/>-->
+
+<!--        <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer" p:compactDisc-ref="compactDisc"/>-->
+
+
+
+
+<!--    <bean id="compactDisc" class="example.bean.wiring.soundsystem.BlankDisc"-->
+<!--          p:artist="Sgt. Pepper's Lonely Hearts Club Band"-->
+<!--          p:title="The Beatles">-->
+<!--        <property name="tracks">-->
+<!--            <list>-->
+<!--                <value>Sgt. Pepper's Lonely Hearts Club Band</value>-->
+<!--                <value>With a Little Help from My Friends</value>-->
+<!--                <value>Lucy in the Sky with Diamonds</value>-->
+<!--                <value>Getting Better</value>-->
+<!--                <value>Fixing a Hole</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer">-->
+<!--        <property name="compactDisc" ref="compactDisc"/>-->
+<!--    </bean>-->
+
+
+
+
+<!--    <import resource="classpath:/blankdisc.xml"/>-->
+
+    <bean class="example.bean.wiring.soundsystem.CDConfig"/>
+
+    <bean id="cdPlayer" class="example.bean.wiring.soundsystem.CDPlayer" c:cd-ref="sgtPeppers"/>
 
 </beans>

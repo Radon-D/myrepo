@@ -15,7 +15,7 @@ public class CDPlayer implements MediaPlayer {
         this.cd = cd;
     }
 
-    public void setCd(CompactDisc cd) {
+    public void setCompactDisc(CompactDisc cd) {
         this.cd = cd;
     }
 

@@ -2,15 +2,12 @@ package example.bean.wiring.soundsystem;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-//@ComponentScan(basePackages = "example.bean.wiring.soundsystem")
+//@Import(CDConfig.class)
+@ImportResource("classpath:/cdplayerconfig.xml")
 public class CDPlayerConfig {
-
-    @Bean
-    public CompactDisc sgtPeppers() {
-        return new SgtPeppers();
-    }
 
     // 构造器注入，自动装配CompactDisc对象
     @Bean
@@ -22,7 +19,7 @@ public class CDPlayerConfig {
 //    @Bean
 //    public CDPlayer cdPlayer(CompactDisc compactDisc) {
 //        CDPlayer cdPlayer = new CDPlayer();
-//        cdPlayer.setCd(compactDisc);
+//        cdPlayer.setCompactDisc(compactDisc);
 //        return cdPlayer;
 //    }
 
