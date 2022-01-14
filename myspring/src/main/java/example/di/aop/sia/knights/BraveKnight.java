@@ -1,4 +1,4 @@
-package example.diandaop.sia.knights;
+package example.di.aop.sia.knights;
 
 public class BraveKnight implements Knight {
 
