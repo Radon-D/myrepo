@@ -7,11 +7,21 @@ import java.util.List;
 @Component
 public class BlankDisc implements CompactDisc {
 
+//    @Value("${disc.title}")
     private String title;
 
+//    @Value("${disc.artist}")
     private String artist;
 
     private List<String> tracks;
+
+    public BlankDisc() {
+    }
+
+    public BlankDisc(String title, String artist) {
+        this.title = title;
+        this.artist = artist;
+    }
 
 //    public BlankDisc(String title, String artist, List<String> tracks) {
 //        this.title = title;
@@ -34,9 +44,9 @@ public class BlankDisc implements CompactDisc {
     @Override
     public void play() {
         System.out.println("Palying " + title + " by " + artist);
-        for (String track : tracks) {
-            System.out.println(track);
-        }
+//        for (String track : tracks) {
+//            System.out.println(track);
+//        }
     }
 
 }

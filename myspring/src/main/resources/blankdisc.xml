@@ -2,11 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/util
-       http://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <util:list id="trackList">
         <value>Sgt. Pepper's Lonely Hearts Club Band</value>
@@ -16,9 +18,15 @@
         <value>Fixing a Hole</value>
     </util:list>
 
+<!--    <bean id="compactDisc" class="example.bean.wiring.soundsystem.BlankDisc"-->
+<!--          p:artist="Sgt. Pepper's Lonely Hearts Club Band"-->
+<!--          p:title="The Beatles"-->
+<!--          p:tracks-ref="trackList"/>-->
+
     <bean id="compactDisc" class="example.bean.wiring.soundsystem.BlankDisc"
-          p:artist="Sgt. Pepper's Lonely Hearts Club Band"
-          p:title="The Beatles"
-          p:tracks-ref="trackList"/>
+        c:_0="${disc.title}"
+        c:_1="${disc.artist}"/>
+
+    <context:property-placeholder location="expressive.properties" />
 
 </beans>
