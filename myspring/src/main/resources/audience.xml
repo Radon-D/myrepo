@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="audience" class="example.spring.aop.concert.xml.Audience" />
+
+    <bean id="performance" class="example.spring.aop.concert.xml.PerformanceImpl" />
+
+    <aop:config>
+        <aop:pointcut id="perform" expression="execution(* example.spring.aop.concert.xml.Performance.perform(..))"/>
+
+        <aop:aspect ref="audience">
+            <aop:before pointcut="execution(* example.spring.aop.concert.xml.Performance.perform(..))" method="silenceCellPhones" />
+
+            <aop:before pointcut-ref="perform" method="takeSeats" />
+
+            <aop:after-returning pointcut-ref="perform" method="applause" />
+
+            <aop:after-throwing pointcut-ref="perform" method="demandRefund" />
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="trackCounter" class="example.spring.aop.concert.TrackCounter" />
+
+    <aop:config>
+        <aop:aspect ref="trackCounter">
+            <aop:pointcut
+                    id="trackPlayed"
+                    expression="execution(* example.spring.aop.concert.BlankDisc.playTrack(int)) and args(trackNumber)" />
+
+            <aop:before pointcut-ref="trackPlayed" method="countTrack" />
+        </aop:aspect>
+    </aop:config>
+
+</beans>

@@ -1,8 +1,5 @@
-package example.spring.aop.concert;
+package example.spring.aop.concert.xml;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class PerformanceImpl implements Performance {
 
     @Override
