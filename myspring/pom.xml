@@ -79,6 +79,13 @@
             <version>1.4</version>
         </dependency>
 
+        <!-- AspectJ -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+
         <!--
         ========== spring模块说明 ==========
 
@@ -215,5 +222,29 @@
         </dependency>
         -->
     </dependencies>
+
+    <build>
+        <plugins>
+            <!--编译aspect的插件，必须要将Audience.aj编译为class文件，
+                不然spring创建audience bean的时候找不到类-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <complianceLevel>1.8</complianceLevel>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
