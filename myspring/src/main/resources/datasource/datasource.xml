@@ -7,19 +7,47 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <beans profile="dev">
-        <jdbc:embedded-database id="dataSource" >
-            <jdbc:script location="classpath:datasource/schema.sql" />
-            <jdbc:script location="classpath:datasource/test-data.sql" />
-        </jdbc:embedded-database>
-    </beans>
+<!--    <beans profile="dev">-->
+<!--        <jdbc:embedded-database id="dataSource" >-->
+<!--            <jdbc:script location="classpath:datasource/schema.sql" />-->
+<!--            <jdbc:script location="classpath:datasource/test-data.sql" />-->
+<!--        </jdbc:embedded-database>-->
+<!--    </beans>-->
 
-    <beans profile="prod">
+<!--    <beans profile="prod">-->
+<!--        <jee:jndi-lookup id="dataSource"-->
+<!--                         lazy-init="true"-->
+<!--                         jndi-name="jdbc/myDatabase"-->
+<!--                         resource-ref="true"-->
+<!--                         proxy-interface="javax.sql.DataSource"/>-->
+<!--    </beans>-->
+
+    <beans>
         <jee:jndi-lookup id="dataSource"
                          lazy-init="true"
                          jndi-name="jdbc/myDatabase"
                          resource-ref="true"
                          proxy-interface="javax.sql.DataSource"/>
+
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+              p:driverClassName="org.h2.Driver"
+              p:url="jdbc:h2:tcp://localhost/~/spitter"
+              p:username="sa"
+              p:password=""
+              p:initialSize="5"
+              p:maxActive="10" />
+
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+              p:driverClassName="org.h2.Driver"
+              p:url="jdbc:h2:tcp://localhost/~/spitter"
+              p:username="sa"
+              p:password="" />
+
+        <jdbc:embedded-database id="dataSource" type="H2">
+            <jdbc:script location="classpath:datasource/schema.sql" />
+            <jdbc:script location="classpath:datasource/test-data.sql" />
+        </jdbc:embedded-database>
+
     </beans>
 
 </beans>
